@@ -111,7 +111,7 @@ export default function Navbar() {
                 {/* Center Menu */}
                 <div className="relative hidden xl:flex items-center bg-white rounded-full shadow px-8 ml-8 py-4 gap-8">
                     <Link
-                        href="#"
+                        href="/company"
                         className="relative text-black font-semibold cursor-pointer group"
                     >
                         Company
@@ -389,7 +389,8 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <Link
-                                    href="#"
+                                    href="/company"
+                                    onClick={() => setDrawerOpen(false)}
                                     className="flex items-center gap-3 px-6 py-10 border-t border-gray-800 hover:bg-[#155B4A]"
                                 >
                                     {/* Building icon for Company */}

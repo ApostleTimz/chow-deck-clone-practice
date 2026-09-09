@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Outlet, Route, Routes } from "react-router-dom";
 import ChowdeckBanner from "./components/HomePageComp/ChowdeckBanner";
 import ScrollPhoneAnimation from "./components/HomePageComp/DeckAnimation";
 import FAQComponent from "./components/HomePageComp/FAQsSection";
@@ -10,6 +11,7 @@ import PromoCards from "./components/HomePageComp/Stories";
 import ThemeSlider from "./components/HomePageComp/ThemeSlider";
 import ChowdeckFooter from "./components/NavFootComp/Footer";
 import Navbar from "./components/NavFootComp/Navbar";
+import CompanyPage from "./pages/CompanyPage";
 
 class AppErrorBoundary extends Component {
     state = { error: null };
@@ -27,26 +29,42 @@ class AppErrorBoundary extends Component {
     }
 }
 
+function Layout() {
+    return (
+        <>
+            <Navbar />
+            <Outlet />
+            <ChowdeckFooter />
+        </>
+    );
+}
+
 export default function App() {
     return (
         <AppErrorBoundary>
-        <>
-            <Navbar />
-            <main>
-                <Hero />
-                <ScrollPhoneAnimation />
-                <JoinNetwork />
-                <div className="bg-[#0c513f]">
-                    <ThemeSlider />
-                    <ChowdeckBanner />
-                    <InfiniteScrollCards />
-                </div>
-                <PromoCards />
-                <FAQComponent />
-                <PromoSection />
-            </main>
-            <ChowdeckFooter />
-        </>
+            <Routes>
+                <Route element={<Layout />}>
+                    <Route
+                        path="/"
+                        element={
+                            <main>
+                                <Hero />
+                                <ScrollPhoneAnimation />
+                                <JoinNetwork />
+                                <div className="bg-[#0c513f]">
+                                    <ThemeSlider />
+                                    <ChowdeckBanner />
+                                    <InfiniteScrollCards />
+                                </div>
+                                <PromoCards />
+                                <FAQComponent />
+                                <PromoSection />
+                            </main>
+                        }
+                    />
+                    <Route path="/company" element={<CompanyPage />} />
+                </Route>
+            </Routes>
         </AppErrorBoundary>
     );
 }

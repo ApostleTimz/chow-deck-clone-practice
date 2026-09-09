@@ -12,6 +12,9 @@
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-cucumber: #72c9aa;
+    --color-chow-green: #0c513f;
+    --color-chow-yellow: #ffedb3;
+    --color-chow-yellow-100: #ffd028;
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
 }
@@ -98,4 +101,15 @@ body {
 .scrollbar-hide {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+}
+
+.section-title {
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.animate-marquee-normal {
+    animation: scroll 60s linear infinite;
 }
